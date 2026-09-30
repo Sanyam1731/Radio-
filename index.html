@@ -12,28 +12,32 @@
 </head>
 <body>
 
-<input type="checkbox" id="menu" class="menu-toggle">
+<input type="checkbox" id="menu" class="menu-toggle" aria-hidden="true">
 
-<div class="nav-shell">
+<header class="nav">
   <a class="logo" href="#home">
-    <img src="assets/gagantara-logo.png" alt="Gagantara Radio – गगनतारा रेडिओ" width="120" height="120">
-    <span class="logo-text"><strong>GAGANTARA</strong><small>Radio</small></span>
+    <img src="assets/gagantara-logo.png" alt="Gagantara Radio" width="120" height="120">
+    <span class="logo-text">
+      <strong>GAGANTARA</strong>
+      <small>Radio</small>
+    </span>
   </a>
-  <nav class="links" id="site-nav" aria-label="Main navigation">
-    <span class="nav-pill" aria-hidden="true"></span>
-    <a class="active" href="#home">Home</a>
-    <a href="#interviews">Interviews</a>
-    <a href="#about">About</a>
-    <a href="#info">Info</a>
-    <a class="btn dark listen-btn" href="#live-player">Listen live</a>
-  </nav>
   <label for="menu" class="burger" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
     <span class="burger-bar"></span>
     <span class="burger-bar"></span>
     <span class="burger-bar"></span>
   </label>
-</div>
+</header>
+
 <label for="menu" class="nav-scrim" aria-hidden="true"></label>
+<nav class="links" id="site-nav" aria-label="Main navigation">
+  <span class="nav-pill" aria-hidden="true"></span>
+  <a class="active" href="#home">Home</a>
+  <a href="#interviews">Interviews</a>
+  <a href="#about">About</a>
+  <a href="#info">Info</a>
+  <a class="btn dark listen-btn" href="#live-player">Listen live</a>
+</nav>
 
 <main>
 <!-- HERO -->
@@ -53,10 +57,9 @@
     </div>
 
     <div class="art" aria-hidden="true">
-      <span class="cursor-orb"></span>
       <svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg">
-        <circle class="sphere sphere-lg" cx="270" cy="200" r="170" fill="#f26b1d" opacity=".12"/>
-        <circle class="sphere sphere-sm" cx="400" cy="110" r="60" fill="#f26b1d" opacity=".15"/>
+        <circle class="sphere sphere-lg" cx="270" cy="200" r="170" fill="#f26b1d" opacity=".22"/>
+        <circle class="sphere sphere-sm" cx="400" cy="110" r="72" fill="#f26b1d" opacity=".38"/>
         <g class="sign">
           <rect x="300" y="30" width="170" height="64" rx="8" fill="#f26b1d" stroke="#111" stroke-width="4"/>
           <text x="385" y="74" text-anchor="middle" font-family="Anton,sans-serif" font-size="38" fill="#fff" letter-spacing="2">ON AIR</text>
@@ -225,22 +228,20 @@
   const navItems = [...nav.querySelectorAll("a:not(.listen-btn)")];
 
   function movePill(el) {
-    if (!el) return;
+    if (!el || !pill) return;
+    const nr = nav.getBoundingClientRect();
     const r = el.getBoundingClientRect();
-    const p = nav.getBoundingClientRect();
     pill.style.opacity = "1";
     pill.style.width = r.width + "px";
     pill.style.height = r.height + "px";
-    pill.style.top = (r.top - p.top) + "px";
-    pill.style.transform = "translateX(" + (r.left - p.left) + "px)";
+    pill.style.transform = "translate(" + (r.left - nr.left) + "px," + (r.top - nr.top) + "px)";
   }
-
   function currentNav() {
-    return nav.querySelector("a.active") || navItems[0];
+    return nav.querySelector("a.active:not(.listen-btn)") || navItems[0];
   }
 
   navItems.forEach(a => {
-    a.addEventListener("mouseenter", () => movePill(a));
+    a.addEventListener("pointerenter", () => movePill(a));
     a.addEventListener("focus", () => movePill(a));
     a.addEventListener("click", () => {
       navItems.forEach(x => x.classList.remove("active"));
@@ -250,7 +251,7 @@
       syncMenuState();
     });
   });
-  nav.addEventListener("mouseleave", () => movePill(currentNav()));
+  nav.addEventListener("pointerleave", () => movePill(currentNav()));
   window.addEventListener("resize", () => movePill(currentNav()));
   requestAnimationFrame(() => movePill(currentNav()));
 
@@ -260,46 +261,33 @@
   });
 
   const art = document.querySelector(".art");
-  const orb = document.querySelector(".cursor-orb");
-  const spheres = document.querySelectorAll(".sphere");
-  let mx = 0, my = 0, tx = 0, ty = 0, clickScale = 1, clickDecay = 0;
+  const lg = document.querySelector(".sphere-lg");
+  const sm = document.querySelector(".sphere-sm");
+  const lg0 = { x: 270, y: 200 };
+  const sm0 = { x: 400, y: 110 };
+  let mx = 0, my = 0, tx = 0, ty = 0;
 
-  function artCenterX() { return art.getBoundingClientRect().width * 0.55; }
-  function artCenterY() { return art.getBoundingClientRect().height * 0.4; }
-  tx = artCenterX(); ty = artCenterY(); mx = tx; my = ty;
-
-  function lerpOrb() {
-    mx += (tx - mx) * 0.12;
-    my += (ty - my) * 0.12;
-    if (clickDecay > 0) {
-      clickDecay -= 0.035;
-      clickScale = 1 + Math.sin(clickDecay * Math.PI) * 0.38;
-    } else {
-      clickScale = 1;
+  function tickSpheres() {
+    mx += (tx - mx) * 0.16;
+    my += (ty - my) * 0.16;
+    if (lg) {
+      lg.setAttribute("cx", lg0.x + mx * 70);
+      lg.setAttribute("cy", lg0.y + my * 55);
     }
-    orb.style.transform = "translate3d(" + mx + "px," + my + "px,0) scale(" + clickScale + ")";
-    const dx = (mx - artCenterX()) / 18;
-    const dy = (my - artCenterY()) / 18;
-    spheres[0].style.transform = "translate(" + dx + "px," + dy + "px) scale(" + clickScale + ")";
-    spheres[1].style.transform = "translate(" + (dx * 1.8) + "px," + (dy * 1.8) + "px) scale(" + (1 + (clickScale - 1) * 1.4) + ")";
-    requestAnimationFrame(lerpOrb);
+    if (sm) {
+      sm.setAttribute("cx", sm0.x + mx * 140);
+      sm.setAttribute("cy", sm0.y + my * 110);
+    }
+    requestAnimationFrame(tickSpheres);
   }
-  lerpOrb();
+  tickSpheres();
 
-  art.addEventListener("pointermove", e => {
+  window.addEventListener("pointermove", e => {
     const r = art.getBoundingClientRect();
-    tx = e.clientX - r.left;
-    ty = e.clientY - r.top;
-    orb.classList.add("on");
-  });
-  art.addEventListener("pointerleave", () => {
-    orb.classList.remove("on");
-    tx = artCenterX();
-    ty = artCenterY();
-  });
-  art.addEventListener("pointerdown", () => {
-    clickDecay = 1;
-    orb.classList.add("on");
+    const x = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+    const y = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+    tx = Math.max(-1.2, Math.min(1.2, x));
+    ty = Math.max(-1.2, Math.min(1.2, y));
   });
 
   // Reveal on scroll
