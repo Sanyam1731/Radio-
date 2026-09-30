@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gagantara Radio – Live Radio, Real Vibes</title>
+<link rel="icon" href="assets/gagantara-logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <a class="logo" href="#home">
+    <img src="assets/gagantara-logo.png" alt="Gagantara Radio – गगनतारा रेडिओ" width="120" height="120">
+    <span class="logo-text"><strong>GAGANTARA</strong><small>Radio</small></span>
+  </a>
+  <input type="checkbox" id="menu" class="menu-toggle">
+  <label for="menu" class="nav-scrim" aria-hidden="true"></label>
+  <nav class="links" id="site-nav" aria-label="Main navigation">
+    <span class="nav-pill" aria-hidden="true"></span>
+    <a class="active" href="#home">Home</a>
+    <a href="#interviews">Interviews</a>
+    <a href="#about">About</a>
+    <a href="#info">Info</a>
+    <a class="btn dark listen-btn" href="#live-player">Listen live</a>
+  </nav>
+  <label for="menu" class="burger" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+    <span class="burger-bar"></span>
+    <span class="burger-bar"></span>
+    <span class="burger-bar"></span>
+  </label>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <p class="kicker">आपल्या मनाचा आवाज</p>
+      <h1>
+        <span class="l1"><em>Gagantara</em> Radio</span>
+        <span class="l2"><em>Live</em> <b>24/7.</b></span>
+      </h1>
+      <p class="lead">Experience Gagantara Radio — voice beyond boundaries. Listen live on our home player, powered by our official stream at gagantararadio.webradiosite.com.</p>
+      <div class="cta">
+        <a class="btn orange" href="#live-player">Listen live</a>
+        <a class="btn ghost" href="#info">View schedule</a>
+      </div>
+    </div>
+
+    <div class="art" aria-hidden="true">
+      <span class="cursor-orb"></span>
+      <svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg">
+        <circle class="sphere sphere-lg" cx="270" cy="200" r="170" fill="#f26b1d" opacity=".12"/>
+        <circle class="sphere sphere-sm" cx="400" cy="110" r="60" fill="#f26b1d" opacity=".15"/>
+        <g class="sign">
+          <rect x="300" y="30" width="170" height="64" rx="8" fill="#f26b1d" stroke="#111" stroke-width="4"/>
+          <text x="385" y="74" text-anchor="middle" font-family="Anton,sans-serif" font-size="38" fill="#fff" letter-spacing="2">ON AIR</text>
+        </g>
+        <g stroke="#111" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+          <!-- woman -->
+          <path d="M60 330 Q70 240 150 235 Q225 240 235 330Z" fill="#f26b1d"/>
+          <circle cx="148" cy="185" r="38" fill="#fff"/>
+          <path d="M108 185 Q105 130 150 132 Q195 132 190 190 Q180 160 150 160 Q125 165 108 185Z" fill="#3a2a22"/>
+          <path d="M105 190 Q106 120 150 120 Q192 120 192 190" fill="none" stroke-width="6"/>
+          <rect x="94" y="180" width="18" height="30" rx="8" fill="#111"/>
+          <rect x="186" y="180" width="18" height="30" rx="8" fill="#111"/>
+          <!-- man -->
+          <path d="M300 330 Q305 245 385 240 Q465 245 480 330Z" fill="#ddd"/>
+          <circle cx="385" cy="190" r="38" fill="#fff"/>
+          <path d="M347 185 Q350 145 385 148 Q422 148 424 185 Q410 165 385 165 Q362 165 347 185Z" fill="#222"/>
+          <path d="M343 190 Q345 130 385 130 Q425 130 427 190" fill="none" stroke-width="6"/>
+          <rect x="332" y="182" width="18" height="30" rx="8" fill="#111"/>
+          <rect x="420" y="182" width="18" height="30" rx="8" fill="#111"/>
+          <!-- desk, mics, laptop -->
+          <rect x="30" y="325" width="470" height="70" rx="6" fill="#222"/>
+          <path d="M235 325 V250 M255 325 V262" fill="none"/>
+          <ellipse cx="235" cy="240" rx="14" ry="22" fill="#f26b1d"/>
+          <ellipse cx="258" cy="252" rx="12" ry="18" fill="#f26b1d"/>
+          <path d="M258 325 L262 292 L332 292 L340 325Z" fill="#fff"/>
+          <rect x="268" y="272" width="60" height="22" rx="3" fill="#111"/>
+        </g>
+        <g class="bars" fill="#f26b1d">
+          <rect x="60" y="370" width="6" height="14"/><rect x="72" y="362" width="6" height="22"/><rect x="84" y="366" width="6" height="18"/><rect x="96" y="358" width="6" height="26"/><rect x="108" y="368" width="6" height="16"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Official stream player (same feed as gagantararadio.webradiosite.com/links) -->
+  <div class="live-embed" id="live-player">
+    <div class="live-embed-head">
+      <p class="kicker"><span class="dot"></span>Live stream</p>
+      <h2 class="title">Gagantara Radio — listen now</h2>
+      <p class="sub">Press play below for the same live stream as our <a href="https://gagantararadio.webradiosite.com/links" target="_blank" rel="noopener noreferrer">official listen link</a>.</p>
+    </div>
+    <div class="live-embed-viewport">
+      <iframe
+        class="live-embed-frame"
+        src="https://public-player-widget.webradiosite.com/?cover=1&amp;current_track=1&amp;schedules=1&amp;link=0&amp;popup=1&amp;share=0&amp;embed=1&amp;auto_play=0&amp;theme=dark&amp;color=6&amp;info=https%3A%2F%2Fpublic-player-widget.webradiosite.com%2Fapp%2Fplayer%2Finfo%2F254048%3Fhash%3De2f6df34de034fb049d967fdbbf03fe95650f5b4&amp;locale=en-us&amp;source=website"
+        title="Gagantara Radio live player"
+        loading="lazy"
+        allow="autoplay; clipboard-write"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- INTERVIEWS -->
+<section class="section" id="interviews">
+  <div class="wrap">
+    <p class="kicker">Listen back</p>
+    <h2 class="title">Recent interviews</h2>
+    <p class="sub">Conversations with the people who make our city move.</p>
+    <div class="cards">
+      <article class="card c1 reveal">
+        <div class="thumb"><span>AP</span><div class="mini-eq"><b></b><b></b><b></b><b></b></div></div>
+        <h3>Dr. Anita Patil on rural healthcare</h3>
+        <p>How mobile clinics are reaching villages across the district.</p>
+        <small>38 min · 24 Sep 2026</small>
+      </article>
+      <article class="card c2 reveal">
+        <div class="thumb"><span>RK</span><div class="mini-eq"><b></b><b></b><b></b><b></b></div></div>
+        <h3>Rahul Kulkarni, the textile entrepreneur</h3>
+        <p>Building a Solapur chaddar brand that ships worldwide.</p>
+        <small>42 min · 17 Sep 2026</small>
+      </article>
+      <article class="card c3 reveal">
+        <div class="thumb"><span>SM</span><div class="mini-eq"><b></b><b></b><b></b><b></b></div></div>
+        <h3>Sunita More, folk singer</h3>
+        <p>Lavani, family and keeping tradition alive on stage.</p>
+        <small>51 min · 10 Sep 2026</small>
+      </article>
+      <article class="card c4 reveal">
+        <div class="thumb"><span>VJ</span><div class="mini-eq"><b></b><b></b><b></b><b></b></div></div>
+        <h3>Coach Vijay Jadhav on young athletes</h3>
+        <p>Training the next generation of runners from local fields.</p>
+        <small>33 min · 3 Sep 2026</small>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="wrap about-grid">
+    <div class="founder reveal">
+      <div class="portrait">
+        <img src="assets/founder-subash-bhike.png" alt="Subash Bhike, founder of Gagantara Radio" width="400" height="400">
+      </div>
+      <p class="founder-name">Subash Bhike</p>
+      <p class="founder-role">Founder, Gagantara Radio</p>
+    </div>
+    <div class="about-text reveal">
+      <h2 class="title">A small station with a big ear</h2>
+      <p>Gagantara Radio began as a single microphone and a dream to put local voices on the air. Founder Subash Bhike built a station where farmers, students and shopkeepers could hear their own stories — voice beyond boundaries.</p>
+      <p>Today we broadcast 24 hours a day to listeners across Solapur and nearby towns, mixing Marathi, Hindi and English shows with community news, music and long-form interviews.</p>
+      <p>Everything we air is guided by one idea: local voices come first.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="section" id="info">
+  <div class="wrap">
+    <h2 class="title">Station info</h2>
+    <div class="info-grid">
+      <div class="panel reveal">
+        <h3>Weekly schedule</h3>
+        <ul class="schedule">
+          <li><span>6:00 am</span>Morning Gagantara</li>
+          <li><span>10:00 am</span>Krishi Katha (farming talk)</li>
+          <li><span>2:00 pm</span>Old Gold Hour</li>
+          <li><span>6:00 pm</span>City Beat news</li>
+          <li><span>8:00 pm</span>The Interview Room</li>
+        </ul>
+      </div>
+      <div class="panel reveal">
+        <h3>Contact us</h3>
+        <p>Studio: 12 Station Road, Solapur, Maharashtra</p>
+        <p>Phone: +91 00000 00000</p>
+        <p>Email: hello@gagantararadio.example</p>
+        <p>Song requests: WhatsApp us during any live show.</p>
+      </div>
+      <div class="panel reveal">
+        <h3>Tune in</h3>
+        <p>FM: 104.5 MHz</p>
+        <p>Online: listen on this home page or at <a href="https://gagantararadio.webradiosite.com/links" target="_blank" rel="noopener noreferrer">gagantararadio.webradiosite.com/links</a>.</p>
+        <p>Follow us on Instagram, Facebook and YouTube for clips of every interview.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-bar">
+    <p><span class="dot"></span>On air: <b id="topShow">Gagantara Live</b></p>
+    <div class="social"><a href="#">Fb</a><a href="#">Ig</a><a href="#">X</a><a href="#">Yt</a></div>
+  </div>
+  <p class="copy">© 2026 Gagantara Radio. All rights reserved. | आपल्या मनाचा आवाज...!</p>
+</footer>
+
+<script>
+  document.getElementById("topShow").textContent = "Gagantara Live";
+
+  const menu = document.getElementById("menu");
+  const burger = document.querySelector(".burger");
+  function syncMenuState() {
+    const open = menu.checked;
+    burger.setAttribute("aria-expanded", open);
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    document.body.classList.toggle("nav-open", open);
+  }
+  menu.addEventListener("change", syncMenuState);
+  syncMenuState();
+
+  const nav = document.getElementById("site-nav");
+  const pill = nav.querySelector(".nav-pill");
+  const navItems = [...nav.querySelectorAll("a:not(.listen-btn)")];
+
+  function movePill(el) {
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const p = nav.getBoundingClientRect();
+    pill.style.opacity = "1";
+    pill.style.width = r.width + "px";
+    pill.style.height = r.height + "px";
+    pill.style.top = (r.top - p.top) + "px";
+    pill.style.transform = "translateX(" + (r.left - p.left) + "px)";
+  }
+
+  function currentNav() {
+    return nav.querySelector("a.active") || navItems[0];
+  }
+
+  navItems.forEach(a => {
+    a.addEventListener("mouseenter", () => movePill(a));
+    a.addEventListener("focus", () => movePill(a));
+    a.addEventListener("click", () => {
+      navItems.forEach(x => x.classList.remove("active"));
+      a.classList.add("active");
+      movePill(a);
+      menu.checked = false;
+      syncMenuState();
+    });
+  });
+  nav.addEventListener("mouseleave", () => movePill(currentNav()));
+  window.addEventListener("resize", () => movePill(currentNav()));
+  requestAnimationFrame(() => movePill(currentNav()));
+
+  document.querySelector(".listen-btn").addEventListener("click", () => {
+    menu.checked = false;
+    syncMenuState();
+  });
+
+  const art = document.querySelector(".art");
+  const orb = document.querySelector(".cursor-orb");
+  const spheres = document.querySelectorAll(".sphere");
+  let mx = 0, my = 0, tx = 0, ty = 0, clickScale = 1, clickDecay = 0;
+
+  function artCenterX() { return art.getBoundingClientRect().width * 0.55; }
+  function artCenterY() { return art.getBoundingClientRect().height * 0.4; }
+  tx = artCenterX(); ty = artCenterY(); mx = tx; my = ty;
+
+  function lerpOrb() {
+    mx += (tx - mx) * 0.12;
+    my += (ty - my) * 0.12;
+    if (clickDecay > 0) {
+      clickDecay -= 0.035;
+      clickScale = 1 + Math.sin(clickDecay * Math.PI) * 0.38;
+    } else {
+      clickScale = 1;
+    }
+    orb.style.transform = "translate3d(" + mx + "px," + my + "px,0) scale(" + clickScale + ")";
+    const dx = (mx - artCenterX()) / 18;
+    const dy = (my - artCenterY()) / 18;
+    spheres[0].style.transform = "translate(" + dx + "px," + dy + "px) scale(" + clickScale + ")";
+    spheres[1].style.transform = "translate(" + (dx * 1.8) + "px," + (dy * 1.8) + "px) scale(" + (1 + (clickScale - 1) * 1.4) + ")";
+    requestAnimationFrame(lerpOrb);
+  }
+  lerpOrb();
+
+  art.addEventListener("pointermove", e => {
+    const r = art.getBoundingClientRect();
+    tx = e.clientX - r.left;
+    ty = e.clientY - r.top;
+    orb.classList.add("on");
+  });
+  art.addEventListener("pointerleave", () => {
+    orb.classList.remove("on");
+    tx = artCenterX();
+    ty = artCenterY();
+  });
+  art.addEventListener("pointerdown", () => {
+    clickDecay = 1;
+    orb.classList.add("on");
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
